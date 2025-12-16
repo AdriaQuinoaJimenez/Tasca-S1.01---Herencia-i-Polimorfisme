@@ -27,6 +27,14 @@ public class Editor {
         return dni;
     }
 
+    @Override
+    public String toString() {
+        return "Editor{" +
+                "name='" + name + '\'' +
+                ", dni='" + dni + '\'' +
+                '}';
+    }
+
     public void addNews(News news) {
         this.publishedNews.add(news);
         System.out.println(this.name + " ha publicat la notícia: " +  news.getTitle());
@@ -43,4 +51,6 @@ public class Editor {
             System.out.println(news.getTitle());
         }
     }
+
+
 }

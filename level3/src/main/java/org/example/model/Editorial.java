@@ -1,0 +1,91 @@
+package org.example.model;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Editorial {
+
+    public void initEditorial(){
+        Scanner sc = new Scanner(System.in);
+        int menuOption = 0;
+
+        List<Editor> editorsList = new ArrayList<>();
+        do {
+            System.out.println("Introdueixi una opcio del menu: ");
+            System.out.println("1. Introduir redactor\n2. Eliminar redactor\n3. Introduir noticia a un redactor\n4. Eliminar noticia\n5. Mostrar totes les noticies d'un redactor\n6. Calcular puntuacio d'una noticia\n7. Calcular preu d'una noticia\n8. Mostrar tots els redactors\n9. Sortir");
+            menuOption = sc.nextInt();
+
+            switch (menuOption){
+                case 1:
+                    addEditor(sc,editorsList);
+                    break;
+                case 2:
+                    deleteEditor(sc,editorsList);
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    for (Editor e : editorsList) {
+                        System.out.println(e.toString());
+                    }
+                    break;
+                case 9:
+                    System.out.println("Sortint...");
+                    break;
+                default:
+                    System.out.println("Introdueixi un numero que estigui a la llista");
+
+            }
+
+        }while(menuOption!= 9);
+
+        System.out.println("Sortida amb exit");
+    }
+
+    private void addEditor(Scanner sc, List<Editor> editorsList){
+        sc.nextLine();
+        System.out.println("Introudeix el DNI del redactor:");
+        String dniEditor = sc.nextLine();
+        System.out.println("Introdueixi el nom del redactor: ");
+        String editorName = sc.nextLine();
+
+        Editor editor = new Editor(dniEditor, editorName);
+        editorsList.add(editor);
+        System.out.println("Redactor afegit");
+    }
+
+    private void deleteEditor(Scanner sc, List<Editor> editorsList){
+        sc.nextLine();
+        System.out.println("Introdueixi el DNI del redactor que vols eliminar: ");
+        String deleteEditorDni = sc.nextLine();
+        System.out.println("Introdueixi el nom del redactor que vols eliminar: ");
+        String deleteEditorName = sc.nextLine();
+
+        Editor deleteEditor = null;
+
+        for (Editor e : editorsList) {
+            if(e.getDni().equalsIgnoreCase(deleteEditorDni) && e.getName().equalsIgnoreCase(deleteEditorName)) {
+                deleteEditor = e;
+                break;
+            }
+        }
+
+        if(deleteEditor != null){
+            editorsList.remove(deleteEditor);
+            System.out.println("Redactor eliminado");
+        }else{
+            System.out.println("Redactor no encontrado");
+        }
+    }
+
+
+}
