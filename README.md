@@ -21,6 +21,9 @@
 2. Quan s'executa? S'executa cada vegada que s'inicia una instància.
 3. Quina diferència hi ha entre aquest i un bloc static? El bloc static pertany a la classe i s'executarà només quan s'inicialitzi la classe. En canvi, el bloc d'inicialització pertany a la instància, i cada vegada que s'inicii una nova instància el codi dintre del bloc d'inicialització s'executarà.
 
+#### Correció:
+S'ha afegit blocs d'inicialització i blocs estatics per a cada subclasse per veure el comportamente que tenen en les subclasses. Podemo veure que una vegada s'executa el codi primer anirá el bloc static de la classe, y després el bloc static de la subclasse. Després s'executarà el bloc d'inicialització de la super classe i posteriorment el de la instància. A més, podem veure que el comportament va en funció de quina llinea de codi està primerament escrita, en aquest cas tenim la primera instància creada es la de WindInstrument, per tant, primer els blocs estatics de la superclasse i la subclasse i despres els blocs d'inicialització de la superclasse i despres de la subclasse.
+
 ## Nivell 1 - Exercici 2
 
 **Descripció**: Aquest exercici tracta sobre les diferencies que existeixen entre les variables static final, final i static. Es realitzarán proves per anar veient quina es la diferència i s'explicarà una mica de teoría per diferenciar entre aquestos 3.
